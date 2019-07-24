@@ -15,7 +15,13 @@ class Start extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			// set true to show with fade animation
+			mustacheShow: false,
+			chatOneShow:  false,
+			chatTwoShow:  false,
+			inputShow:    false, // input and button
+		};
 	}
 
 	render() {
@@ -24,18 +30,24 @@ class Start extends Component {
 
 		const { name, setName } = this.props;
 
+		const { mustacheShow, chatOneShow, chatTwoShow, inputShow } = this.state;
+
 		return (
 			<div className = "start">
 				<Sections
 					btnText = { button }
 					btnDisabled = { name.length === 0 }
+					btnAnimate = { inputShow }
 				>
 
 					{/*icon*/ }
-					<Mustache />
+					<Mustache show = { mustacheShow } />
 
 					{/*message one*/ }
-					<ChatBox text = { chatOne }>
+					<ChatBox
+						text = { chatOne }
+						show = { chatOneShow }
+					>
 						<img
 							className = "start__smile"
 							src = { smileIcon }
@@ -44,13 +56,17 @@ class Start extends Component {
 					</ChatBox>
 
 					{/*message two*/ }
-					<ChatBox text = { chatTwo } />
+					<ChatBox
+						text = { chatTwo }
+						show = { chatTwoShow }
+					/>
 
 					{/*input*/ }
 					<div className = "start__input">
 						<Input
 							value = { name }
 							label = { inputLabel }
+							show = { inputShow }
 
 							change = { val => setName(val) }
 						/>
@@ -58,6 +74,16 @@ class Start extends Component {
 				</Sections>
 			</div>
 		);
+	}
+
+	componentDidMount() {
+
+		// loops components to show with fade animation
+		Object.keys(this.state).forEach((key, index) => {
+			setTimeout(() => {
+				this.setState({ [key]: true });
+			}, 1000 * (index + 1));
+		});
 	}
 }
 

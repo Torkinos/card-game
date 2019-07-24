@@ -7,7 +7,9 @@ const sections = props => {
 
 	const buttonClass = ClassNames({
 		"sections__button":           true,
-		"sections__button--disabled": props.btnDisabled
+		"sections__button--disabled": props.btnDisabled,
+		"hide":                       !props.btnAnimate,
+		"show":                       props.btnAnimate,
 	});
 
 	const button = props.btnText
@@ -36,6 +38,7 @@ const sections = props => {
 };
 
 sections.propTypes = {
+	btnAnimate:  PropTypes.bool,
 	btnDisabled: PropTypes.bool,
 	btnText:     PropTypes.string
 };
