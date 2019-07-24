@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./styles.scss";
 
-import Logo from "../static/assets/frank-icon.svg";
+import Logo  from "../static/assets/frank-icon.svg";
+import Start from "./containers/start/start";
 
 class View extends Component {
 
@@ -16,7 +17,7 @@ class View extends Component {
 
 				{/*body*/ }
 				<div className = "view__body">
-
+					<Start />
 				</div>
 
 				{/*footer*/ }
