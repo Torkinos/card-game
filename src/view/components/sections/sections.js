@@ -29,7 +29,11 @@ const sections = props => {
 			</div>
 
 			{/*bot*/ }
-			<div className = "sections__bot">
+			<div
+				className = "sections__bot"
+
+				onClick = { props.onClick }
+			>
 
 				{ button }
 			</div>
@@ -40,7 +44,8 @@ const sections = props => {
 sections.propTypes = {
 	btnAnimate:  PropTypes.bool,
 	btnDisabled: PropTypes.bool,
-	btnText:     PropTypes.string
+	btnText:     PropTypes.string,
+	onClick:     PropTypes.func
 };
 
 export default sections;

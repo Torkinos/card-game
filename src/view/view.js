@@ -1,8 +1,17 @@
 import React, { Component } from "react";
+import PropTypes            from "prop-types";
+import { connect }          from "react-redux";
 import "./styles.scss";
 
-import Logo  from "../static/assets/frank-icon.svg";
-import Start from "./containers/start/start";
+import routes from "../routes/routes";
+import Logo   from "../static/assets/frank-icon.svg";
+import Start  from "./containers/start/start";
+import Game   from "./containers/game/game";
+
+const pages = {
+	[routes.start]: <Start />,
+	[routes.game]:  <Game />,
+};
 
 class View extends Component {
 
@@ -12,12 +21,15 @@ class View extends Component {
 	}
 
 	render() {
+
+		const { activePage } = this.props;
+
 		return (
 			<div className = "view">
 
 				{/*body*/ }
 				<div className = "view__body">
-					<Start />
+					{ pages[activePage] }
 				</div>
 
 				{/*footer*/ }
@@ -36,4 +48,14 @@ class View extends Component {
 	}
 }
 
-export default View;
+View.propTypes = {
+	activePage: PropTypes.string
+};
+
+const mapStateToProps = state => {
+	return {
+		activePage: state.view.activePage,
+	};
+};
+
+export default connect(mapStateToProps)(View);
