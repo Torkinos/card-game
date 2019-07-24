@@ -1,5 +1,10 @@
 @import "./styles/fonts";
 
+html {
+	// set base for rem units
+	font-size: 62.5%;
+}
+
 body {
 	margin:                  0;
 	font-family:             -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -13,4 +18,8 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 							 monospace;
+}
+
+div {
+	box-sizing: border-box;
 }
