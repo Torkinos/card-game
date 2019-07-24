@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./styles.scss";
 
 import Sections from "../../components/sections/sections";
+import Mustache from "../../components/mustache/mustache";
 
 class Start extends Component {
 
@@ -15,6 +16,7 @@ class Start extends Component {
 			<div className = "start">
 				<Sections>
 
+					<Mustache />
 				</Sections>
 			</div>
 		);
