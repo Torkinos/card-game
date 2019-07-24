@@ -10,6 +10,14 @@ const sections = props => {
 		"sections__button--disabled": props.btnDisabled
 	});
 
+	const button = props.btnText
+								 ? (
+									 <div className = { buttonClass }>
+										 { props.btnText }
+									 </div>
+								 )
+								 : null;
+
 	return (
 		<div className = "sections">
 
@@ -21,10 +29,7 @@ const sections = props => {
 			{/*bot*/ }
 			<div className = "sections__bot">
 
-				{/*button*/ }
-				<div className = { buttonClass }>
-					asd
-				</div>
+				{ button }
 			</div>
 		</div>
 	);
@@ -32,6 +37,7 @@ const sections = props => {
 
 sections.propTypes = {
 	btnDisabled: PropTypes.bool,
+	btnText:     PropTypes.string
 };
 
 export default sections;

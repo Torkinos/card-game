@@ -16,11 +16,11 @@ class Start extends Component {
 
 	render() {
 
-		const { chatOne, chatTwo } = START;
+		const { chatOne, chatTwo, button } = START;
 
 		return (
 			<div className = "start">
-				<Sections>
+				<Sections btnText = { button }>
 
 					<Mustache />
 
