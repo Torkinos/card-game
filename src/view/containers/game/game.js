@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import PropTypes            from "prop-types";
 import { connect }          from "react-redux";
+import * as action          from "../../actions";
 import "./styles.scss";
 
-import { GAME }    from "../../../static/constants/constants";
-import Mustache    from "../../components/mustache/mustache";
-import ChatBox     from "../../components/chat-box/chat-box";
-import smileIcon   from "../../../static/assets/smile.svg";
-import Sections    from "../../components/sections/sections";
-import * as action from "../../actions";
+import { GAME } from "../../../static/constants/constants";
+import Mustache from "../../components/mustache/mustache";
+import ChatBox  from "../../components/chat-box/chat-box";
+import Sections from "../../components/sections/sections";
+import Cards    from "../cards/cards";
 
 const { chatOne, chatTwo, button } = GAME;
 
@@ -19,6 +19,7 @@ class Game extends Component {
 		this.state = {
 			chatOneShow: false,
 			chatTwoShow: false,
+			cardsShow:   false,
 		};
 	}
 
@@ -26,9 +27,13 @@ class Game extends Component {
 
 		const { name, attempts } = this.props;
 
-		const { chatOneShow, chatTwoShow } = this.state;
+		const { chatOneShow, chatTwoShow, cardsShow } = this.state;
 
 		const btnAnimate = attempts < 1;
+
+		const cards = cardsShow
+									? <Cards />
+									: null;
 
 		return (
 			<div className = "game">
@@ -51,6 +56,11 @@ class Game extends Component {
 						text = { chatTwo(attempts) }
 						show = { chatTwoShow }
 					/>
+
+					{/*cards*/ }
+					<div className = "game__cards">
+						{ cards }
+					</div>
 				</Sections>
 			</div>
 		);

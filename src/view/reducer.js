@@ -1,10 +1,18 @@
 import * as actionType from "./action.types";
 import routes          from "../routes/routes";
+import { GAME }        from "../static/constants/constants";
+
+const { hidden } = GAME;
 
 const initialState = {
 	activePage: "start",
 	name:       "",
 	attempts:   3,
+	cards:      [
+		{ type: hidden },
+		{ type: hidden },
+		{ type: hidden },
+	]
 };
 
 // reducers

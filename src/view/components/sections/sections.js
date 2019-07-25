@@ -14,7 +14,11 @@ const sections = props => {
 
 	const button = props.btnText
 								 ? (
-									 <div className = { buttonClass }>
+									 <div
+										 className = { buttonClass }
+										 //
+										 onClick = { props.onClick }
+									 >
 										 { props.btnText }
 									 </div>
 								 )
@@ -29,12 +33,7 @@ const sections = props => {
 			</div>
 
 			{/*bot*/ }
-			<div
-				className = "sections__bot"
-
-				onClick = { props.onClick }
-			>
-
+			<div className = "sections__bot">
 				{ button }
 			</div>
 		</div>
