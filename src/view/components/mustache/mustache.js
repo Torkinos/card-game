@@ -1,16 +1,21 @@
-import React      from "react";
-import PropTypes  from "prop-types";
-import ClassNames from "classnames";
+import React, { useState, useEffect } from "react";
+import ClassNames                     from "classnames";
 import "./styles.scss";
 
 import mustacheIcon from "../../../static/assets/frank-mustace.svg";
 
-const mustache = props => {
+const Mustache = props => {
+
+	const [show, setShow] = useState(0);
+
+	useEffect(() => {
+		setShow(true);
+	}, []);
 
 	const className = ClassNames({
 		"mustache": true,
-		"hide":     !props.show,
-		"show":     props.show,
+		"hide":     !show,
+		"show":     show,
 	});
 
 	return (
@@ -23,8 +28,4 @@ const mustache = props => {
 	);
 };
 
-mustache.propTypes = {
-	show: PropTypes.bool
-};
-
-export default mustache;
+export default Mustache;

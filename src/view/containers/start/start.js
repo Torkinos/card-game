@@ -7,7 +7,6 @@ import "./styles.scss";
 import { START } from "../../../static/constants/constants";
 import smileIcon from "../../../static/assets/smile.svg";
 import Sections  from "../../components/sections/sections";
-import Mustache  from "../../components/mustache/mustache";
 import ChatBox   from "../../components/chat-box/chat-box";
 import Input     from "../../components/input/input";
 

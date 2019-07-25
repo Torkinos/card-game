@@ -20,23 +20,15 @@ class View extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			mustacheShow: false
-		};
+		this.state = {};
 	}
 
 	render() {
 
-		const { mustacheShow } = this.state;
-
 		const { activePage } = this.props;
 
-		const page = mustacheShow
-								 ? pages[activePage]
-								 : null;
-
 		const mustache = activePage !== routes.results
-										 ? <Mustache show = { mustacheShow } />
+										 ? <Mustache />
 										 : null;
 
 		return (
@@ -49,7 +41,7 @@ class View extends Component {
 
 				{/*body*/ }
 				<div className = "view__body">
-					{ page }
+					{ pages[activePage] }
 				</div>
 
 				{/*footer*/ }
@@ -65,12 +57,6 @@ class View extends Component {
 				</div>
 			</div>
 		);
-	}
-
-	componentDidMount() {
-		setTimeout(() => {
-			this.setState({ mustacheShow: true });
-		}, 250);
 	}
 }
 
