@@ -1,15 +1,17 @@
 .card {
-	display:          inline-block;
-	width:            60px;
-	height:           60px;
-	background-color: #FFFFFF;
-	box-shadow:       0 0 5px rgba(147, 150, 158, 0.11682),
-										0 22px 24px rgba(147, 150, 158, 0.0957314);
-	border-radius:    10px;
-	position:         relative;
-	overflow:         hidden;
-	cursor:           pointer;
-	user-select:      none;
+	display:                     inline-block;
+	width:                       60px;
+	height:                      60px;
+	background-color:            #FFFFFF;
+	box-shadow:                  0 0 5px rgba(147, 150, 158, 0.11682),
+															 0 22px 24px rgba(147, 150, 158, 0.0957314);
+	border-radius:               10px;
+	position:                    relative;
+	overflow:                    hidden;
+	cursor:                      pointer;
+
+	// remove blue highlighting
+	-webkit-tap-highlight-color: transparent;
 
 	&__image {
 		user-select: none;
