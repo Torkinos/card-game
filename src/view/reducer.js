@@ -3,7 +3,8 @@ import routes          from "../routes/routes";
 
 const initialState = {
 	activePage: "start",
-	name:       ""
+	name:       "",
+	attempts:   3,
 };
 
 // reducers

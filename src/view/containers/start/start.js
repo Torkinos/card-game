@@ -11,6 +11,8 @@ import Mustache  from "../../components/mustache/mustache";
 import ChatBox   from "../../components/chat-box/chat-box";
 import Input     from "../../components/input/input";
 
+const { chatOne, chatTwo, inputLabel, button } = START;
+
 class Start extends Component {
 
 	constructor(props) {
@@ -25,8 +27,6 @@ class Start extends Component {
 	}
 
 	render() {
-
-		const { chatOne, chatTwo, inputLabel, button } = START;
 
 		const { name, setName, start } = this.props;
 
