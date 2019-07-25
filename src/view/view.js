@@ -33,11 +33,12 @@ class View extends Component {
 										 : null;
 
 		const loadingEl = (
-			<img
-				className = "view__loading"
-				src = { loadingIcon }
-				alt = "Loading"
-			/>
+			<div className = "view__loading">
+				<img
+					src = { loadingIcon }
+					alt = "Loading"
+				/>
+			</div>
 		);
 
 		const page = loading
