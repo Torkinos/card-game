@@ -17,9 +17,12 @@ class Game extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			chatOneShow: false,
-			chatTwoShow: false,
-			cardsShow:   false,
+			show:       {
+				chatOneShow: false,
+				chatTwoShow: false,
+				cardsShow:   false,
+			},
+			buttonShow: false
 		};
 	}
 
@@ -27,29 +30,35 @@ class Game extends Component {
 
 		const { name, attempts } = this.props;
 
-		const { chatOneShow, chatTwoShow, cardsShow } = this.state;
+		const { chatOneShow, chatTwoShow, cardsShow } = this.state.show;
 
-		const btnAnimate = attempts < 1;
+		const { buttonShow } = this.state;
 
 		const cards = cardsShow
-									? <Cards />
+									? <Cards showBtn = { () => this.setState({ buttonShow: true }) } />
 									: null;
+
+		const messageOne = attempts > 2
+											 ? (
+												 <ChatBox
+													 text = { chatOne(name) }
+													 show = { chatOneShow }
+												 />
+											 )
+											 : null;
 
 		return (
 			<div className = "game">
 				<Sections
 					btnText = { button }
-					btnAnimate = { btnAnimate }
+					btnAnimate = { buttonShow }
 				>
 
 					{/*icon*/ }
 					<Mustache show />
 
 					{/*message one*/ }
-					<ChatBox
-						text = { chatOne(name) }
-						show = { chatOneShow }
-					/>
+					{ messageOne }
 
 					{/*message two*/ }
 					<ChatBox
@@ -69,9 +78,16 @@ class Game extends Component {
 	componentDidMount() {
 
 		// loops components to show with fade animation
-		Object.keys(this.state).forEach((key, index) => {
+		Object.keys(this.state.show).forEach((key, index) => {
 			setTimeout(() => {
-				this.setState({ [key]: true });
+				this.setState(prevState => {
+					return {
+						show: {
+							...prevState.show,
+							[key]: true
+						}
+					};
+				});
 			}, 1000 * (index + 1));
 		});
 	}

@@ -10,13 +10,14 @@
 	overflow:         hidden;
 	cursor:           pointer;
 	//
-	transition:       background-color 500ms;
+	transition:       background-color 1000ms;
 
 	&__image {
-		position:  absolute;
-		top:       50%;
-		left:      50%;
-		transform: translate(-50%, -50%);
+		user-select: none;
+		position:    absolute;
+		top:         50%;
+		left:        50%;
+		transform:   translate(-50%, -50%);
 
 		&--ball {
 			width:  40px;

@@ -7,3 +7,11 @@ export const setName = payload => {
 export const start = () => {
 	return { type: actionType.START };
 };
+
+export const choseCard = payload => {
+	return { type: actionType.CHOSE_CARD, payload };
+};
+
+export const clearCards = () => {
+	return { type: actionType.CLEAR_CARDS };
+};
