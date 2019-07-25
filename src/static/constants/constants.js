@@ -13,3 +13,13 @@ export const GAME = {
 	cross:   "cross",
 	hidden:  "hidden",
 };
+
+export const RESULTS = {
+	textOne: (name, result) => {
+		return result
+					 ? `Good job ${ name }!`
+					 : `At least you tried ${ name }!`;
+	},
+	textTwo: result => `${ result } out of 3`,
+	button:  "Start over",
+};

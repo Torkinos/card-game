@@ -18,6 +18,7 @@ class Game extends Component {
 		super(props);
 		this.state = {
 			show:       {
+				// set true to show with fade animation
 				chatOneShow: false,
 				chatTwoShow: false,
 				cardsShow:   false,

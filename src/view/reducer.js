@@ -5,7 +5,7 @@ import { GAME }        from "../static/constants/constants";
 const { ball, cross, hidden } = GAME;
 
 const initialState = {
-	activePage: routes.start,
+	activePage: routes.results,
 	name:       "",
 	attempts:   3,
 	points:     0,
