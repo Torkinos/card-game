@@ -1,4 +1,5 @@
 export default {
-	start: "start",
-	game:  "game",
+	start:   "start",
+	game:    "game",
+	results: "results",
 };

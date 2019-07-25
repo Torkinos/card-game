@@ -28,7 +28,7 @@ class Game extends Component {
 
 	render() {
 
-		const { name, attempts } = this.props;
+		const { name, attempts, results } = this.props;
 
 		const { chatOneShow, chatTwoShow, cardsShow } = this.state.show;
 
@@ -52,10 +52,9 @@ class Game extends Component {
 				<Sections
 					btnText = { button }
 					btnAnimate = { buttonShow }
-				>
 
-					{/*icon*/ }
-					<Mustache show />
+					onClick = { results }
+				>
 
 					{/*message one*/ }
 					{ messageOne }
@@ -96,6 +95,7 @@ class Game extends Component {
 Game.propTypes = {
 	name:     PropTypes.string,
 	attempts: PropTypes.number,
+	results:  PropTypes.func,
 };
 
 const mapStateToProps = state => {
@@ -107,7 +107,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		// setName: payload => dispatch(action.setName(payload)),
+		results: () => dispatch(action.results()),
 	};
 };
 

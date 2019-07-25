@@ -19,10 +19,9 @@ class Start extends Component {
 		super(props);
 		this.state = {
 			// set true to show with fade animation
-			mustacheShow: false,
-			chatOneShow:  false,
-			chatTwoShow:  false,
-			inputShow:    false, // input and button
+			chatOneShow: false,
+			chatTwoShow: false,
+			inputShow:   false, // input and button
 		};
 	}
 
@@ -30,7 +29,7 @@ class Start extends Component {
 
 		const { name, setName, start } = this.props;
 
-		const { mustacheShow, chatOneShow, chatTwoShow, inputShow } = this.state;
+		const { chatOneShow, chatTwoShow, inputShow } = this.state;
 
 		return (
 			<div className = "start">
@@ -41,9 +40,6 @@ class Start extends Component {
 
 					onClick = { start }
 				>
-
-					{/*icon*/ }
-					<Mustache show = { mustacheShow } />
 
 					{/*message one*/ }
 					<ChatBox
