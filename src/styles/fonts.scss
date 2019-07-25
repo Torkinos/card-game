@@ -1,0 +1,25 @@
+@font-face {
+	font-family: "GT Walsheim";
+	src:         url("static/fonts/gt-walsheim.ttf") format("ttf"),
+							 url("static/fonts/gt-walsheim.eot") format("eot"),
+							 url("static/fonts/gt-walsheim.woff") format("woff"),
+							 url("static/fonts/gt-walsheim.svg") format('svg');
+}
+
+@font-face {
+	font-family: "GT Walsheim";
+	src:         url("static/fonts/gt-walsheim-bold.ttf") format("ttf"),
+							 url("static/fonts/gt-walsheim-bold.eot") format("eot"),
+							 url("static/fonts/gt-walsheim-bold.woff") format("woff"),
+							 url("static/fonts/gt-walsheim-bold.svg") format('svg');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: "GT Walsheim";
+	src:         url("static/fonts/gt-walsheim-medium.ttf") format("ttf"),
+							 url("static/fonts/gt-walsheim-medium.eot") format("eot"),
+							 url("static/fonts/gt-walsheim-medium.woff") format("woff"),
+							 url("static/fonts/gt-walsheim-medium.svg") format('svg');
+	font-weight: 500;
+}
