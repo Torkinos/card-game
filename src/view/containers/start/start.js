@@ -27,7 +27,7 @@ class Start extends Component {
 
 	render() {
 
-		const { name, setName, start } = this.props;
+		const { name, setName, game } = this.props;
 
 		const { chatOneShow, chatTwoShow, inputShow } = this.state;
 
@@ -38,7 +38,7 @@ class Start extends Component {
 					btnDisabled = { name.length === 0 }
 					btnAnimate = { inputShow }
 
-					onClick = { start }
+					onClick = { game }
 				>
 
 					{/*message one*/ }
@@ -87,7 +87,8 @@ class Start extends Component {
 
 Start.propTypes = {
 	name:    PropTypes.string,
-	setName: PropTypes.func
+	setName: PropTypes.func,
+	game:    PropTypes.func,
 };
 
 const mapStateToProps = state => {
@@ -99,7 +100,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		setName: payload => dispatch(action.setName(payload)),
-		start:   () => dispatch(action.start()),
+		game:    () => dispatch(action.game()),
 	};
 };
 

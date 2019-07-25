@@ -7,8 +7,9 @@ import "./styles.scss";
 import { RESULTS }   from "../../../static/constants/constants";
 import Sections      from "../../components/sections/sections";
 import ResultMessage from "../../components/result-message/result-message";
+import Points        from "../../components/points/points";
 
-const { textOne, textTwo, button } = RESULTS;
+const { textTwo, button } = RESULTS;
 
 class Results extends Component {
 
@@ -25,23 +26,31 @@ class Results extends Component {
 
 		const { textOneShow, textTwoShow, buttonShow } = this.state;
 
-		const { name, points } = this.props;
+		const { name, points, start } = this.props;
 
 		return (
 			<div className = "results">
 				<Sections
 					btnText = { button }
 					btnAnimate = { buttonShow }
+					//
+					onClick = { start }
 				>
 					<div className = "results__container">
 
-						{/*cheering*/ }
+						{/*Result Message*/ }
 						<ResultMessage
 							show = { textOneShow }
 							// show message according points
-							text = { textOne(name, points > 0) }
+							name = { name }
+							points = { points }
 						/>
 
+						{/*Overall Points*/ }
+						<Points
+							show = { textTwoShow }
+							text = { textTwo(points) }
+						/>
 					</div>
 				</Sections>
 			</div>
@@ -54,7 +63,7 @@ class Results extends Component {
 		Object.keys(this.state).forEach((key, index) => {
 			setTimeout(() => {
 				this.setState({ [key]: true });
-			}, 1000 * (index + 1));
+			}, 375 * (index * 2));
 		});
 	}
 }
@@ -62,6 +71,7 @@ class Results extends Component {
 Results.propTypes = {
 	points: PropTypes.number,
 	name:   PropTypes.string,
+	start:  PropTypes.func,
 };
 
 const mapStateToProps = state => {
@@ -73,7 +83,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		// results: () => dispatch(action.results()),
+		start: () => dispatch(action.start()),
 	};
 };
 

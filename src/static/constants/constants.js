@@ -15,11 +15,10 @@ export const GAME = {
 };
 
 export const RESULTS = {
-	textOne: (name, result) => {
-		return result
-					 ? `Good job ${ name }!`
-					 : `At least you tried ${ name }!`;
-	},
-	textTwo: result => `${ result } out of 3`,
-	button:  "Start over",
+	betterLuck: name => `Better luck next time ${ name }.`,
+	nicely:     name => `Nicely done ${ name }!`,
+	good:       name => `Good job ${ name }!`,
+	great:      name => `Great job ${ name }!`,
+	textTwo:    result => `${ result } out of 3`,
+	button:     "Start over",
 };

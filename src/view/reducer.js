@@ -21,7 +21,7 @@ export default function(state = initialState, action) {
 	switch (action.type) {
 		case actionType.SET_NAME:
 			return { ...state, name: action.payload };
-		case actionType.START:
+		case actionType.GAME:
 			return { ...state, activePage: routes.game };
 		case actionType.RESULTS:
 			return { ...state, activePage: routes.results };
