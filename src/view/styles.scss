@@ -1,8 +1,9 @@
 .view {
-	display: inline-block;
-	width:   375px;
-	height:  100vh;
-	padding: 56px 20px 0 20px;
+	display:    inline-block;
+	width:      375px;
+	height:     100vh;
+	min-height: 600px;
+	padding:    56px 20px 0 20px;
 
 	&__header {
 		width:  100%;
