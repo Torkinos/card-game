@@ -1,0 +1,36 @@
+.card {
+	display:          inline-block;
+	width:            60px;
+	height:           60px;
+	background-color: #FFFFFF;
+	box-shadow:       0 0 5px rgba(147, 150, 158, 0.11682),
+										0 22px 24px rgba(147, 150, 158, 0.0957314);
+	border-radius:    10px;
+	position:         relative;
+	overflow:         hidden;
+	cursor:           pointer;
+	//
+	transition:       background-color 1000ms;
+
+	&__image {
+		user-select: none;
+		position:    absolute;
+		top:         50%;
+		left:        50%;
+		transform:   translate(-50%, -50%);
+
+		&--ball {
+			width:  40px;
+			height: 40px;
+		}
+
+		&--cross {
+			width:  16px;
+			height: 16px;
+		}
+	}
+
+	&--hidden {
+		background-color: #E4E9EC;
+	}
+}

@@ -11,6 +11,8 @@ import Mustache  from "../../components/mustache/mustache";
 import ChatBox   from "../../components/chat-box/chat-box";
 import Input     from "../../components/input/input";
 
+const { chatOne, chatTwo, inputLabel, button } = START;
+
 class Start extends Component {
 
 	constructor(props) {
@@ -26,9 +28,7 @@ class Start extends Component {
 
 	render() {
 
-		const { chatOne, chatTwo, inputLabel, button } = START;
-
-		const { name, setName } = this.props;
+		const { name, setName, start } = this.props;
 
 		const { mustacheShow, chatOneShow, chatTwoShow, inputShow } = this.state;
 
@@ -38,6 +38,8 @@ class Start extends Component {
 					btnText = { button }
 					btnDisabled = { name.length === 0 }
 					btnAnimate = { inputShow }
+
+					onClick = { start }
 				>
 
 					{/*icon*/ }
@@ -101,6 +103,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		setName: payload => dispatch(action.setName(payload)),
+		start:   () => dispatch(action.start()),
 	};
 };
 

@@ -14,7 +14,11 @@ const sections = props => {
 
 	const button = props.btnText
 								 ? (
-									 <div className = { buttonClass }>
+									 <div
+										 className = { buttonClass }
+										 //
+										 onClick = { props.onClick }
+									 >
 										 { props.btnText }
 									 </div>
 								 )
@@ -30,7 +34,6 @@ const sections = props => {
 
 			{/*bot*/ }
 			<div className = "sections__bot">
-
 				{ button }
 			</div>
 		</div>
@@ -40,7 +43,8 @@ const sections = props => {
 sections.propTypes = {
 	btnAnimate:  PropTypes.bool,
 	btnDisabled: PropTypes.bool,
-	btnText:     PropTypes.string
+	btnText:     PropTypes.string,
+	onClick:     PropTypes.func
 };
 
 export default sections;

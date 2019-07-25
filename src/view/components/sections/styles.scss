@@ -20,13 +20,14 @@
 		background-color: #4967E2;
 		box-shadow:       0 2px 4px rgba(60, 101, 243, 0.340636);
 		border-radius:    150px;
+		cursor:           pointer;
 		//
 		transition:       background-color 500ms;
 		//
 		font-size:        1.4rem;
 		line-height:      2.4rem;
 		color:            #ffffff;
-		text-transform:   capitalize;
+		user-select:      none;
 		//
 		position:         absolute;
 		bottom:           0;
@@ -34,6 +35,7 @@
 
 		&--disabled {
 			background-color: #C4C8CB;
+			pointer-events:   none;
 		}
 	}
 }
