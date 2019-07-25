@@ -13,3 +13,12 @@ export const GAME = {
 	cross:   "cross",
 	hidden:  "hidden",
 };
+
+export const RESULTS = {
+	betterLuck: name => `Better luck next time ${ name }.`,
+	nicely:     name => `Nicely done ${ name }!`,
+	good:       name => `Good job ${ name }!`,
+	great:      name => `Great job ${ name }!`,
+	textTwo:    result => `${ result } out of 3`,
+	button:     "Start over",
+};

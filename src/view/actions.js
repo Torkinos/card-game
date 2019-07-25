@@ -8,6 +8,14 @@ export const start = () => {
 	return { type: actionType.START };
 };
 
+export const game = () => {
+	return { type: actionType.GAME };
+};
+
+export const results = () => {
+	return { type: actionType.RESULTS };
+};
+
 export const choseCard = payload => {
 	return { type: actionType.CHOSE_CARD, payload };
 };

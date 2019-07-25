@@ -5,7 +5,7 @@ import { GAME }        from "../static/constants/constants";
 const { ball, cross, hidden } = GAME;
 
 const initialState = {
-	activePage: "game",
+	activePage: routes.results,
 	name:       "",
 	attempts:   3,
 	points:     0,
@@ -21,8 +21,10 @@ export default function(state = initialState, action) {
 	switch (action.type) {
 		case actionType.SET_NAME:
 			return { ...state, name: action.payload };
-		case actionType.START:
+		case actionType.GAME:
 			return { ...state, activePage: routes.game };
+		case actionType.RESULTS:
+			return { ...state, activePage: routes.results };
 		case actionType.CHOSE_CARD:
 			return choseCard(state, action.payload);
 		case actionType.CLEAR_CARDS:

@@ -19,18 +19,17 @@ class Start extends Component {
 		super(props);
 		this.state = {
 			// set true to show with fade animation
-			mustacheShow: false,
-			chatOneShow:  false,
-			chatTwoShow:  false,
-			inputShow:    false, // input and button
+			chatOneShow: false,
+			chatTwoShow: false,
+			inputShow:   false, // input and button
 		};
 	}
 
 	render() {
 
-		const { name, setName, start } = this.props;
+		const { name, setName, game } = this.props;
 
-		const { mustacheShow, chatOneShow, chatTwoShow, inputShow } = this.state;
+		const { chatOneShow, chatTwoShow, inputShow } = this.state;
 
 		return (
 			<div className = "start">
@@ -39,11 +38,8 @@ class Start extends Component {
 					btnDisabled = { name.length === 0 }
 					btnAnimate = { inputShow }
 
-					onClick = { start }
+					onClick = { game }
 				>
-
-					{/*icon*/ }
-					<Mustache show = { mustacheShow } />
 
 					{/*message one*/ }
 					<ChatBox
@@ -91,7 +87,8 @@ class Start extends Component {
 
 Start.propTypes = {
 	name:    PropTypes.string,
-	setName: PropTypes.func
+	setName: PropTypes.func,
+	game:    PropTypes.func,
 };
 
 const mapStateToProps = state => {
@@ -103,7 +100,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		setName: payload => dispatch(action.setName(payload)),
-		start:   () => dispatch(action.start()),
+		game:    () => dispatch(action.game()),
 	};
 };
 
