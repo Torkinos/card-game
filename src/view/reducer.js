@@ -9,6 +9,7 @@ const initialState = {
 	name:       "",
 	attempts:   3,
 	points:     0,
+	loading:    false,
 	cards:      [
 		{ type: hidden },
 		{ type: hidden },

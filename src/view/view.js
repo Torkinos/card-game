@@ -3,12 +3,13 @@ import PropTypes            from "prop-types";
 import { connect }          from "react-redux";
 import "./styles.scss";
 
-import routes   from "../routes/routes";
-import Logo     from "../static/assets/frank-icon.svg";
-import Mustache from "./components/mustache/mustache";
-import Start    from "./containers/start/start";
-import Game     from "./containers/game/game";
-import Results  from "./containers/results/results";
+import routes      from "../routes/routes";
+import logo        from "../static/assets/frank-icon.svg";
+import loadingIcon from "../static/assets/loading-circle.svg";
+import Mustache    from "./components/mustache/mustache";
+import Start       from "./containers/start/start";
+import Game        from "./containers/game/game";
+import Results     from "./containers/results/results";
 
 const pages = {
 	[routes.start]:   <Start />,
@@ -25,11 +26,23 @@ class View extends Component {
 
 	render() {
 
-		const { activePage } = this.props;
+		const { activePage, loading } = this.props;
 
-		const mustache = activePage !== routes.results
+		const mustache = activePage !== routes.results && !loading
 										 ? <Mustache />
 										 : null;
+
+		const loadingEl = (
+			<img
+				className = "view__loading"
+				src = { loadingIcon }
+				alt = "Loading"
+			/>
+		);
+
+		const page = loading
+								 ? loadingEl
+								 : pages[activePage];
 
 		return (
 			<div className = "view">
@@ -41,7 +54,7 @@ class View extends Component {
 
 				{/*body*/ }
 				<div className = "view__body">
-					{ pages[activePage] }
+					{ page }
 				</div>
 
 				{/*footer*/ }
@@ -50,7 +63,7 @@ class View extends Component {
 					{/*logo*/ }
 					<div className = "view__logo">
 						<img
-							src = { Logo }
+							src = { logo }
 							alt = "Logo"
 						/>
 					</div>
@@ -67,6 +80,7 @@ View.propTypes = {
 const mapStateToProps = state => {
 	return {
 		activePage: state.view.activePage,
+		loading:    state.view.loading,
 	};
 };
 
