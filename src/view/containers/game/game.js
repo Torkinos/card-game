@@ -5,7 +5,6 @@ import * as action          from "../../actions";
 import "./styles.scss";
 
 import { GAME } from "../../../static/constants/constants";
-import Mustache from "../../components/mustache/mustache";
 import ChatBox  from "../../components/chat-box/chat-box";
 import Sections from "../../components/sections/sections";
 import Cards    from "../cards/cards";
